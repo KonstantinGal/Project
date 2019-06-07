@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Abel|Open+Sans:300&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="backimg">
+        <div class="wrapper">
+            <div class="hero-section">
+                <h2>Medication Reminder Service</h2>
+
+                <div class="menu-btn">
+                    <ion-icon name="menu"></ion-icon>
+                </div>
+            </div>
+
+            <div class="menu">
+                <div class="close-menu">
+                    <ion-icon name="close"></ion-icon>
+                </div>
+
+                <div class="nav">
+                    <ul class="main-menu">
+                        <li class="main-menu-item">
+                            <a href="#">Home</a>
+                        </li>
+
+                        <li class="main-menu-item">
+                            <a href="#">About &nbsp; <ion-icon name="add"></ion-icon></a>
+                            
+                            <ul class="submenu">
+                                <li class="submenu-item">
+                                    <a href="#">Service</a>
+                                </li>
+                                <li class="submenu-item">
+                                        <a href="#">Creator</a>
+                                </li>
+                            </ul>
+
+
+                        </li>
+
+                        <li class="main-menu-item">
+                            <a href="#">Contact &nbsp; <ion-icon name="add"></ion-icon></a></a>
+
+                            <ul class="submenu">
+                                    <li class="submenu-item">
+                                        +1 202 766 3861
+                                    </li>
+                                    <li class="submenu-item">
+                                            konstantin.a.galkin@outlook.com
+                                    </li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="middle">
+            
+            <!-- Heading -->
+            <h1>COMMING SOON</h1>
+
+            <hr>
+
+            <p id="demo" style="font-size: 30px"></p>
+        </div>
+    </div>
+    
+</body>
+
+<!-- Navbar logic -->
+
+<script type="text/javascript">
+    $('ul.main-menu li').click(function(e) {
+        e.preventDefault();
+
+        if($(this).siblings('li').find('ul.submenu:visible').length) {
+            $('ul.submenu').slideUp('normal');
+        }
+        $(this).find('ul.submenu').slideToggle('normal');
+
+    });
+
+    var t1 = new TimelineMax({pause: true})
+
+    t1.to(".menu", 0.5, {
+        autoAlpha: 1
+    });
+
+    t1.staggerFrom(".main-menu li a:not(.submenu li a)", 1, {
+        opacity: 0,
+        y: 10,
+        ease: Power3.easeInOut,
+    }, 0.1);
+
+    t1.from(".submenu", 0.5, {
+        autoAlpha: 0
+    });
+
+    t1.staggerFrom(".media ul li", 1, {
+        opacity: 0,
+        y: 10,
+        ease: Power3.easeInOut
+    }, 0.1);
+
+    t1.reverse();
+ 
+    $(document).on("click", ".menu-btn", function() {
+        t1.reversed(!t1.reversed())
+    });
+
+    $(document).on("click", ".close-menu", function() {
+        t1.reversed(!t1.reversed())
+    });
+
+</script>
+
+
+<!-- Countdown logic  -->
+<script>
+        var countDownDate = new Date("Jun 20, 2019 09:00:00").getTime();
+    
+            var countDownFunction = setInterval(function() {
+    
+            var now = new Date().getTime();
+    
+            var span = countDownDate - now;
+    
+            var days = Math.floor(span / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((span % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    
+            var minutes = Math.floor((span % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((span % (1000 * 60)) / 1000);
+    
+            document.getElementById("demo").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+    
+            if(span < 0 ) {
+                clearInterval(countDownFunction);
+                document.getElementById("demo").innerHTML = "EXPIRED";
+            }
+    
+        }, 1000);
+    
+    </script>
+</html>
