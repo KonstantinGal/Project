@@ -71,7 +71,7 @@
 
             <hr>
 
-            <p id="demo" style="font-size: 30px"></p>
+            <p id="demo"></p>
         </div>
     </div>
     
@@ -93,7 +93,8 @@
     var t1 = new TimelineMax({pause: true})
 
     t1.to(".menu", 0.2, {
-        autoAlpha: 1
+        autoAlpha: 1,
+        width: 300
     });
     
     t1.to(".menu-btn", 0.5, {

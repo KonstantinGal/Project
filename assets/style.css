@@ -33,7 +33,7 @@ body, html {
 h2{
     position: absolute;
     top: 25%;
-    left:50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
 }
@@ -47,8 +47,9 @@ h2{
 .menu {
     position: absolute;
     top: 0;
-    width: 30%;
+    width: 5%;
     height: 100vh;
+    background-color: rgba(0, 0, 0, 0.151);
 }
 
 .close-menu {
@@ -90,7 +91,7 @@ h2{
 a ion-icon {
     object-position: relative;
     font-size: 9px; 
-    opacity: 0.4;
+    opacity: 0.43;
 }
 
 .submenu {
@@ -115,13 +116,19 @@ a ion-icon {
 }
 
 @media(max-width: 768px) {
-    h1{
+    h1 {
         font-size: 20px;
+    }
+
+    p{
+        font-size: 20px;
+        word-spacing: 0;
     }
 
     .nav {
         margin-top: 20%;
     }
+
 }
 
 .middle {
