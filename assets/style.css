@@ -7,11 +7,10 @@ body, html {
 
 
 .backimg {
-    background: url(back.png);
+    background: url(back2.png);
     height: 100%;
     background-position: center;
     background-size: cover;
-    position: relative;
     color: rgba(255, 255, 255, 0.8);
     font-family: 'Abel', sans-serif;
     font-size: 30px;
@@ -77,11 +76,11 @@ h2{
 
 .main-menu-item a {
     text-decoration: none;
-    color: white;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .submenu-item a {
-    color: grey;
+    
 }
 
 .submenu li {
